@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NFC Music</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+video{
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+}
+
+#overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:rgba(0,0,0,.6);
+    color:white;
+    font-family:sans-serif;
+}
+
+button{
+    margin-top:20px;
+    font-size:30px;
+    padding:15px 50px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<video id="video" playsinline loop>
+    <source src="music.mp4" type="video/mp4">
+</video>
+
+<div id="overlay">
+<h1>🎵 NFC MUSIC</h1>
+<button onclick="playVideo()">▶ 再生</button>
+</div>
+
+<script>
+function playVideo(){
+    const video=document.getElementById("video");
+    video.play();
+    document.getElementById("overlay").style.display="none";
+}
+</script>
+
+</body>
+</html>
